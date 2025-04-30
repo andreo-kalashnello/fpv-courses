@@ -506,3 +506,32 @@ body {
     color: #ee940a;
   }
 }
+
+.neon-yellow,
+.neon-blue {
+  filter: drop-shadow(0 0 16px currentColor) drop-shadow(0 0 48px currentColor)
+    drop-shadow(0 0 96px currentColor) drop-shadow(0 0 160px currentColor);
+  animation: neonPulse 1.3s infinite alternate ease-in-out;
+}
+
+.neon-blue {
+  color: #585dca;
+}
+
+.neon-yellow {
+  color: #e0e035;
+}
+
+@keyframes neonPulse {
+  0% {
+    filter: drop-shadow(0 0 8px currentColor) drop-shadow(0 0 20px currentColor)
+      drop-shadow(0 0 40px currentColor);
+    opacity: 0.7;
+  }
+  100% {
+    filter: drop-shadow(0 0 24px currentColor)
+      drop-shadow(0 0 80px currentColor) drop-shadow(0 0 160px currentColor)
+      drop-shadow(0 0 240px currentColor);
+    opacity: 1;
+  }
+}
