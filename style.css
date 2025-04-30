@@ -462,7 +462,7 @@ body {
   --len: 50.56;
   animation-delay: 1.2s;
 }
-l4 {
+.l4 {
   --len: 35.67;
   animation-delay: 1s;
 }
@@ -481,4 +481,28 @@ l4 {
 .l8 {
   --len: 83.57;
   animation-delay: 0.2s;
+}
+
+.shimmer-text {
+  animation: colorFlow 6s linear infinite;
+  opacity: 1;
+  transform: translate(0);
+}
+
+@keyframes colorFlow {
+  0% {
+    color: #ee940a;
+  }
+  25% {
+    color: #ffba50;
+  }
+  50% {
+    color: #ffffff;
+  }
+  75% {
+    color: #ffba50;
+  }
+  100% {
+    color: #ee940a;
+  }
 }

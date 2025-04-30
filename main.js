@@ -12,4 +12,9 @@ window.addEventListener("DOMContentLoaded", () => {
   tl.to(".bar1", { y: "-100%", duration: 0.6, ease: "power2.inOut" })
     .to(".bar2", { y: "-100%", duration: 0.6, ease: "power2.inOut" }, "-=0.4")
     .to(".bar3", { y: "-100%", duration: 0.6, ease: "power2.inOut" }, "-=0.4");
+
+  setTimeout(() => {
+    document.querySelector(".banner__main-title").classList.add("shimmer-text");
+    document.querySelector(".banner__undertitle").classList.add("shimmer-text");
+  }, 3000);
 });
