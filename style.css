@@ -1,83 +1,87 @@
-/* Reset Styles */
-html,
+.preloader,
 body,
+html {
+  height: 100%;
+}
+a,
+abbr,
+acronym,
+address,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
 div,
-span,
-object,
-iframe,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
+header,
+hgroup,
+html,
+i,
+iframe,
 img,
 ins,
 kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
 q,
+ruby,
 s,
 samp,
+section,
 small,
+span,
 strike,
 strong,
 sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
 summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
 time,
-mark,
-audio,
+tr,
+tt,
+u,
+ul,
+var,
 video {
   margin: 0;
   padding: 0;
@@ -85,7 +89,6 @@ video {
   font-size: 100%;
   vertical-align: baseline;
 }
-
 article,
 aside,
 details,
@@ -99,44 +102,32 @@ nav,
 section {
   display: block;
 }
-
-html,
-body {
-  height: 100%;
-}
-
 body {
   line-height: 1.2;
+  font-family: Nunito, sans-serif;
 }
-
 ol,
 ul {
   padding-left: 0;
   list-style: none;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 a {
   text-decoration: none;
   color: inherit;
   display: inline-block;
 }
-
 html {
   box-sizing: border-box;
 }
-
 *,
-*::before,
-*::after {
+::after,
+::before {
   box-sizing: inherit;
 }
-
-/* Variables */
 :root {
   --page-bg: #ffebcc;
   --main-orange: #af6017;
@@ -145,28 +136,19 @@ html {
   --light-orange-2: #ffb13a;
   --text-secondary: #462914;
 }
-
-/* Base Styles */
-body {
-  font-family: "Nunito", sans-serif;
-}
-
 .preloader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   display: flex;
   z-index: 9999;
 }
-
 .bar {
   flex: 1;
   background-color: var(--light-orange);
   transform: translateY(0);
 }
-
 .wrap {
   display: flex;
   flex-direction: column;
@@ -175,26 +157,32 @@ body {
   min-height: 100vh;
   background-color: var(--page-bg);
 }
-
+.banner,
+.banner__mid {
+  display: flex;
+  flex-direction: column;
+}
 .banner {
   width: 1200px;
   height: 628px;
   background-color: var(--main-orange);
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
   padding: 36px;
   color: var(--text-orange);
   position: relative;
   opacity: 0;
   transform: translateY(-50px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 1s, transform 1s;
 }
-
 .banner__fpv-wrap {
   position: absolute;
   top: 50px;
   right: 20px;
+}
+
+.banner__fpv-wrap svg {
+  width: 762px;
+  height: 402px;
 }
 
 .banner__top {
@@ -203,7 +191,6 @@ body {
   width: 100%;
   margin-bottom: 16px;
 }
-
 .banner__main-title {
   font-size: 4rem;
   max-width: 800px;
@@ -211,14 +198,12 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  row-gap: 0px;
+  row-gap: 0;
   align-items: center;
   opacity: 0;
   transform: translateY(40px);
-  animation: fadeUp 1s ease-out forwards;
-  animation-delay: 0.3s;
+  animation: 1s ease-out 0.3s forwards fadeUp;
 }
-
 .banner__main-title::after {
   content: "";
   display: block;
@@ -229,24 +214,30 @@ body {
   border-radius: 4px;
   transform-origin: left;
   transform: scaleX(0.7);
-  animation: pulseLine 1s infinite alternate ease-in-out;
+  animation: 1s ease-in-out infinite alternate pulseLine;
 }
-
 .banner__main-title-sp {
-  padding: 6px 6px 2px 6px;
+  padding: 6px 6px 2px;
   border-radius: 6px;
   border: 6px solid var(--text-orange);
   display: flex;
   box-sizing: border-box;
 }
-
+.banner__bottom,
+.banner__btn {
+  padding: 16px 20px;
+  border-radius: 20px;
+  color: var(--text-secondary);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.3s;
+}
 .banner__logo {
   width: 172px;
   height: 172px;
-  animation: rotateLogo 5s linear infinite;
+  animation: 3s linear infinite rotateLogo;
   position: relative;
 }
-
 .banner__logo::before {
   content: "";
   position: absolute;
@@ -256,33 +247,26 @@ body {
   height: 212px;
   background: radial-gradient(
     circle,
-    rgba(238, 148, 10, 0.4) 0%,
+    rgba(238, 148, 10, 0.4) 0,
     transparent 70%
   );
   border-radius: 50%;
-  animation: pulseGlow 3s infinite;
+  animation: 3s infinite pulseGlow;
 }
-
 .banner__mid {
-  display: flex;
-  flex-direction: column;
   align-items: flex-start;
   gap: 24px;
   margin-bottom: 24px;
 }
-
 .banner__undertitle {
   font-size: 3rem;
   max-width: 700px;
   display: block;
   opacity: 0;
   transform: translateY(40px);
-  animation: fadeUp 1s ease-out forwards;
-  animation-delay: 0.5s;
+  animation: 1s ease-out 0.5s forwards fadeUp;
 }
-
 .banner__btn {
-  padding: 16px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -291,67 +275,45 @@ body {
   background-color: var(--light-orange);
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: var(--text-secondary);
   font-weight: 700;
-  border-radius: 20px;
-  transition: 0.3s all;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 1s ease-out forwards;
-  animation-delay: 0.7s;
+  animation: 1s ease-out 0.7s forwards fadeUp;
 }
-
+.banner__bottom,
 .banner__btn:hover {
   background-color: var(--light-orange-2);
 }
-
 .banner__bottom {
-  background-color: var(--light-orange-2);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  padding: 16px 20px;
-  border-radius: 20px;
-  color: var(--text-secondary);
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 1s ease-out forwards;
-  animation-delay: 1s;
-  transition: 0.3s all;
+  animation: 1s ease-out 1s forwards fadeUp;
 }
 .banner__bottom:hover {
   background-color: var(--light-orange);
 }
-
 .banner__bottom-left {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-
 .banner__name {
   font-size: 2rem;
   line-height: 1;
 }
-
 .banner__role {
   font-size: 1.5rem;
 }
-
 .banner__num {
   font-size: 3rem;
   overflow: hidden;
   white-space: nowrap;
   width: 0;
-  animation: typing 2s steps(20) 1s forwards;
+  animation: 2s steps(20) 1s forwards typing;
 }
-
 .drone {
-  animation: droneMove 3s infinite ease-in-out;
+  animation: 3s ease-in-out infinite droneMove;
 }
-
-/* Animations */
 @keyframes fadeUp {
   0% {
     opacity: 0;
@@ -362,9 +324,9 @@ body {
     transform: translateY(0);
   }
 }
-
 @keyframes droneMove {
-  0% {
+  0%,
+  100% {
     transform: translate(0, 0);
   }
   25% {
@@ -376,20 +338,15 @@ body {
   75% {
     transform: translate(0, 10px);
   }
-  100% {
-    transform: translate(0, 0);
-  }
 }
-
 @keyframes rotateLogo {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0);
   }
   100% {
     transform: rotate(360deg);
   }
 }
-
 @keyframes pulseLine {
   0% {
     transform: scaleX(0.7);
@@ -400,7 +357,6 @@ body {
     opacity: 1;
   }
 }
-
 @keyframes pulseGlow {
   0%,
   100% {
@@ -412,19 +368,15 @@ body {
     opacity: 1;
   }
 }
-
 @keyframes pop {
-  0% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
     transform: scale(1.08);
   }
-  100% {
-    transform: scale(1);
-  }
 }
-
 @keyframes typing {
   from {
     width: 0;
@@ -433,23 +385,16 @@ body {
     width: 100%;
   }
 }
-
 @keyframes draw {
   to {
     stroke-dashoffset: 0;
   }
 }
-
-/* Lines Animation */
 .animate-line {
   stroke-dasharray: var(--len);
   stroke-dashoffset: var(--len);
-  animation: draw 1.3s ease-in-out forwards;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: 1.3s ease-in-out infinite alternate both draw;
 }
-
 .l1 {
   --len: 69.23;
   animation-delay: 1.6s;
@@ -482,46 +427,36 @@ body {
   --len: 83.57;
   animation-delay: 0.2s;
 }
-
 .shimmer-text {
-  animation: colorFlow 6s linear infinite;
+  animation: 6s linear infinite colorFlow;
   opacity: 1;
   transform: translate(0);
 }
-
 @keyframes colorFlow {
-  0% {
-    color: #ee940a;
-  }
-  25% {
-    color: #ffba50;
-  }
-  50% {
-    color: #ffffff;
-  }
-  75% {
-    color: #ffba50;
-  }
+  0%,
   100% {
     color: #ee940a;
   }
+  25%,
+  75% {
+    color: #ffba50;
+  }
+  50% {
+    color: #fff;
+  }
 }
-
-.neon-yellow,
-.neon-blue {
+.neon-blue,
+.neon-yellow {
   filter: drop-shadow(0 0 16px currentColor) drop-shadow(0 0 48px currentColor)
     drop-shadow(0 0 96px currentColor) drop-shadow(0 0 160px currentColor);
-  animation: neonPulse 1.3s infinite alternate ease-in-out;
+  animation: 1.3s ease-in-out infinite alternate neonPulse;
 }
-
 .neon-blue {
   color: #585dca;
 }
-
 .neon-yellow {
   color: #e0e035;
 }
-
 @keyframes neonPulse {
   0% {
     filter: drop-shadow(0 0 8px currentColor) drop-shadow(0 0 20px currentColor)
@@ -533,5 +468,133 @@ body {
       drop-shadow(0 0 80px currentColor) drop-shadow(0 0 160px currentColor)
       drop-shadow(0 0 240px currentColor);
     opacity: 1;
+  }
+}
+
+@media (max-width: 1200px) {
+  .banner {
+    width: 100%;
+    height: 480px;
+  }
+  .banner__main-title {
+    font-size: 3rem;
+    max-width: 600px;
+  }
+  .banner__undertitle {
+    font-size: 2rem;
+    max-width: 500px;
+  }
+  .banner__btn {
+    font-size: 2.125rem;
+  }
+  .banner__num {
+    font-size: 2rem;
+  }
+  .banner__name {
+    font-size: 1.5rem;
+  }
+  .banner__role {
+    font-size: 1rem;
+  }
+  .banner__fpv-wrap svg {
+    width: 600px;
+    height: 300px;
+  }
+  .banner__fpv-wrap {
+    top: 50%;
+    right: 76px;
+    transform: translateY(-64%);
+  }
+  .banner__logo {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner__fpv-wrap {
+    right: 16px;
+  }
+}
+
+@media (max-width: 850px) {
+  .banner__fpv-wrap {
+    width: 40%;
+    right: 30px;
+  }
+  .banner__fpv-wrap svg {
+    width: 100%;
+    height: auto;
+  }
+  .banner__logo {
+    width: 75px;
+    height: 75px;
+  }
+  .banner__main-title {
+    font-size: 2rem;
+    max-width: 50%;
+  }
+  .banner__undertitle {
+    font-size: 1.5rem;
+    max-width: 50%;
+  }
+  .banner__btn {
+    font-size: 1.125rem;
+  }
+  .banner__bottom,
+  .banner__btn {
+    padding: 12px 16px;
+    border-radius: 10px;
+  }
+  .banner__num {
+    font-size: 1.5rem;
+  }
+  .banner__name {
+    font-size: 1.125rem;
+  }
+  .banner__role {
+    font-size: 0.875rem;
+  }
+  .banner {
+    height: 370px;
+  }
+}
+
+@media (max-width: 650px) {
+  .banner__main-title {
+    font-size: 2rem;
+    max-width: 70%;
+  }
+  .banner__undertitle {
+    font-size: 1.5rem;
+    max-width: 70%;
+  }
+  .banner__num {
+    font-size: 1.1rem;
+  }
+  .banner__name {
+    font-size: 1rem;
+  }
+  .banner {
+    padding: 16px;
+  }
+  .banner__fpv-wrap {
+    right: 20px;
+    top: 60%;
+  }
+}
+
+@media (max-width: 425px) {
+  .banner__bottom {
+    gap: 10px;
+  }
+  .banner__main-title {
+    font-size: 1.25rem;
+  }
+  .banner__undertitle {
+    font-size: 1.25rem;
+  }
+  .banner {
+    height: auto;
   }
 }
